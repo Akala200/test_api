@@ -98,10 +98,9 @@ class aggregateController {
     console.log(req.body);
 
     try {
-      const user = await Olist_order_items_dataset.findOne({ seller_id: id });
-      console.log('user', user);
+      const order = await Olist_order_items_dataset.findOne({ seller_id: id });
 
-      if (!user) {
+      if (!order) {
         return res
           .status(400)
           .json(responses.error(400, 'Sorry, order does not exist'));
@@ -113,11 +112,10 @@ class aggregateController {
         { new: true }
       );
 
-      if (updatedOrder) {
-        return res
-          .status(200)
-          .json(responses.success(200, 'Seller details has been updated', updatedOrder));
-      }
+      console.log('order', updatedOrder);
+      return res
+        .status(200)
+        .json(responses.success(200, 'Seller details has been updated', updatedOrder));
     } catch (error) {
       tracelogger(error);
       return res.status(500).json(responses.error(500, error));
