@@ -95,9 +95,11 @@ class aggregateController {
 
   static async updateOrder(req, res,) {
     const { id } = req.params;
+    console.log(req.body);
 
     try {
       const user = await Olist_order_items_dataset.findOne({ seller_id: id });
+      console.log('user', user);
 
       if (!user) {
         return res
