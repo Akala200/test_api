@@ -24,7 +24,6 @@ class profileController {
 
   static async updateProfile(req, res,) {
     const id = req.user.seller_id;
-    console.log(id);
     try {
       const user = await Olist_order_items_dataset.findOne({ seller_id: id });
 

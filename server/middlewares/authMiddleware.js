@@ -27,7 +27,6 @@ const auth = async (req, res, next) => {
   if (user === sellert.seller_id && pass === sellert.seller_zip_code_prefix) {
     // If Authorized user
     req.user = sellert;
-    console.log(req.user);
 
     next();
   } else {

@@ -95,7 +95,6 @@ class aggregateController {
 
   static async updateOrder(req, res,) {
     const { id } = req.params;
-    console.log(req.body);
 
     try {
       const order = await Olist_order_items_dataset.findOne({ seller_id: id });
@@ -112,7 +111,6 @@ class aggregateController {
         { new: true }
       );
 
-      console.log('order', updatedOrder);
       return res
         .status(200)
         .json(responses.success(200, 'Seller details has been updated', updatedOrder));
