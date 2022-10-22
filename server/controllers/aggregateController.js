@@ -134,7 +134,7 @@ class aggregateController {
 
   static async deleteOrder(req, res,) {
     const { id } = req.params;
-
+    console.log(req.body);
     try {
       const user = await Olist_order_items_dataset.findOne({ seller_id: id });
 
